@@ -29,7 +29,7 @@ function awardPoints(text) {
   switch(text) {
     case "How can I help?":
       scores.push(5);
-    case "This sounds like it's your fault":
+    case "statment2":
       scores.push(1);
   }
 }
