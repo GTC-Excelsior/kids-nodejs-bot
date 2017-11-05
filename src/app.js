@@ -27,10 +27,12 @@ var bot = new builder.UniversalBot(connector, function (session) {
 
 function awardPoints(text) {
   switch(text) {
-    case "How can I help?":
-      scores.push(5);
-    case "statment2":
+    case "I’m sorry to hear that. What kinds of things are they doing or saying?":
+      scores.push(2);
+    case "Are they bullying you?":
       scores.push(1);
+    case "What did you do to them?":
+      scores.push(0);
   }
 }
 
@@ -60,9 +62,8 @@ bot.dialog('firstDialog', function (session) {
   	.suggestedActions(
   		builder.SuggestedActions.create(
   				session, [
-  					builder.CardAction.imBack(session, "What kinds of things are they doing or saying?", "I’m sorry to hear that. What kinds of things are they doing or saying?"),
+  					builder.CardAction.imBack(session, "I’m sorry to hear that. What kinds of things are they doing or saying?", "I’m sorry to hear that. What kinds of things are they doing or saying?"),
   					builder.CardAction.imBack(session, "Are they bullying you?", "Are they bullying you?"),
-  					builder.CardAction.imBack(session, "Tell me about your experience", "Tell me about your experience"),
   					builder.CardAction.imBack(session, "What did you do to them?", "What did you do to them?")
   				]
   			));
@@ -84,7 +85,7 @@ bot.dialog('secondDialog', function (session) {
   setTimeout(function () {
       session.send(msg);
   }, 3500);
-}).triggerAction({ matches: /^(Tell me about your experience)/i });
+}).triggerAction({ matches: /^(I’m sorry to hear that. What kinds of things are they doing or saying|Are they bullying you|What did you do to them)/i });
 
 bot.dialog('thirdDialog', function (session) {
   session.sendTyping();
