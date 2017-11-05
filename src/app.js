@@ -73,7 +73,7 @@ function awardPoints(text) {
       scores.push(2);
     case "It doesn’t mean that there is anything wrong with you.":
       scores.push(1);
-    case "They don’t sound like very good friends.":
+    case "They don’t sound like a very good friend.":
       scores.push(0);
   }
 }
