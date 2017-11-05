@@ -16,26 +16,48 @@ var connector = new builder.ChatConnector({
 // Listen for messages from users
 server.post('/api/messages', connector.listen());
 
+let testaroo = [];
+
 var bot = new builder.UniversalBot(connector, function (session) {
-    session.send("Hi I need some help");
+  session.sendTyping();
+  setTimeout(function () {
+      session.send("Hi I need some help");
+  }, 10);
+});
+
+
+// Middleware for logging
+bot.use({
+    receive: function (event, next) {
+      if (event.text == "What did you do to them?") {
+        console.log('wrong answer, bucko');
+        testaroo.push(0);
+      };
+      console.log(testaroo);
+      next();
+    }
 });
 
 bot.dialog('firstDialog', function (session) {
+  session.sendTyping();
   var msg = new builder.Message(session)
   	.text("Someone is being mean to me at school")
   	.suggestedActions(
   		builder.SuggestedActions.create(
   				session, [
-  					builder.CardAction.imBack(session, "I’m sorry to hear that. What kinds of things are they doing or saying?", "I’m sorry to hear that. What kinds of things are they doing or saying?"),
+  					builder.CardAction.imBack(session, "What kinds of things are they doing or saying?", "I’m sorry to hear that. What kinds of things are they doing or saying?"),
   					builder.CardAction.imBack(session, "Are they bullying you?", "Are they bullying you?"),
   					builder.CardAction.imBack(session, "Tell me about your experience", "Tell me about your experience"),
   					builder.CardAction.imBack(session, "What did you do to them?", "What did you do to them?")
   				]
   			));
-  session.send(msg);
-}).triggerAction({ matches: /^(answer)/i });
+  setTimeout(function () {
+      session.send(msg);
+  }, 10);
+}).triggerAction({ matches: /^(How can I help?)/i });
 
 bot.dialog('secondDialog', function (session) {
+  session.sendTyping();
   var msg = new builder.Message(session)
   	.text("Sometimes I feel so alone and I think maybe it would be better if I was dead")
   	.suggestedActions(
@@ -44,5 +66,32 @@ bot.dialog('secondDialog', function (session) {
   					builder.CardAction.imBack(session, "Are you safe?", "Are you safe?")
   				]
   			));
-  session.send(msg);
+  setTimeout(function () {
+      session.send(msg);
+  }, 10);
 }).triggerAction({ matches: /^(Tell me about your experience)/i });
+
+bot.dialog('thirdDialog', function (session) {
+  session.sendTyping();
+  var msg = new builder.Message(session)
+  	.text("Yes, I'm safe")
+  	.suggestedActions(
+  		builder.SuggestedActions.create(
+  				session, [
+  					builder.CardAction.imBack(session, "Is now a good time to talk?", "Is now a good time to talk?")
+  				]
+  			));
+  setTimeout(function () {
+      session.send(msg);
+  }, 10);
+}).triggerAction({ matches: /^(Are you safe?)/i });
+
+bot.dialog('fourthDialog', function (session) {
+  session.sendTyping();
+  var msg = new builder.Message(session)
+  	.text("No. I have to go. Bye")
+  setTimeout(function () {
+      session.send(msg);
+  }, 10);
+  session.save();
+}).triggerAction({ matches: /^(Is now a good time to talk?)/i });
