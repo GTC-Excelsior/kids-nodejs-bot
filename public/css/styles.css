@@ -23,3 +23,37 @@
     height: auto;
     float: right;
   }
+
+  .wrapper {
+    padding: 40px 20px;
+    margin: 0 auto;
+    width: 80%;
+  }
+
+  h3 {
+    font-family: "Nunito", "Sans Serif";
+    color: #8FC93A;
+  }
+
+  h4 {
+    font-family: "Nunito", "Sans Serif";
+    color: white;
+  }
+
+  h5 {
+    font-family: "Nunito", "Sans Serif";
+    color: white;
+  }
+
+  li {
+    color: white;
+  }
+
+  .area-box {
+    background-color: #F2545B;
+    width: 400px;
+    height: 175px;
+    border-radius: 20px;
+    padding: 20px;
+  }
+

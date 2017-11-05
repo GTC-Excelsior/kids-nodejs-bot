@@ -16,26 +16,21 @@
 <img id="logo" src="images/Kids_Transparent_Logo_white.png">
 </div>
 
-<div class="chart">
-    <canvas id="myChart"></canvas>
-    <script>
-    var ctx = document.getElementById("myChart");
-    var myChart = new Chart(ctx, {
-      type: 'line',
-      data: {
-        labels: questions,
-        datasets: [
-          {
-            label: "Question Score Data",
-            data: [<%= data.results %>]
-          }
-        ]
-      }
-    });
-    </script>
-    <br>
+<div class="wrapper">
 
-    <a href="./feedback" class="button button-rounded-hover">Next</a>
+<h3>Areas for Improvement</h3>
+
+<div class="area-box">
+  <h5>Strengths-Based Approach</h5>
+  <ul>
+    <li>Focus on the caller's strengths</li>
+  </ul>
+</div>
+
+<br>
+<br>
+
+ <a href="./" class="button button-rounded-hover">Back</a>
 
 </div>
 
