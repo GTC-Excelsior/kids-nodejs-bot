@@ -12,8 +12,8 @@
 ## Contributors
 [![Val Heimpel](https://avatars0.githubusercontent.com/u/22244184?s=250&v=4)](https://github.com/vheimpel) | [![Chris Heimpel](https://avatars3.githubusercontent.com/u/2053489?s=250&v=4)](https://github.com/heimp)  | [![Meagan Blais](https://avatars1.githubusercontent.com/u/25989281?s=300&v=4)](https://github.com/MeaganBlais) 
 ---|---|---
-[Val Heimpel](https://github.com/vheimpel) | [Chris Heimpel](https://github.com/vheimpel) | [Saj B.](https://github.com/Sanju3001)
+[Val Heimpel](https://github.com/vheimpel) | [Chris Heimpel](https://github.com/vheimpel) | [Meagan Blais](https://github.com/MeaganBlais)
 
 [![Saj B.](https://avatars2.githubusercontent.com/u/15350256?s=250&v=4)](https://github.com/Sanju3001) | [![Ian Duke](https://avatars2.githubusercontent.com/u/16829276?v=4&s=250)](https://github.com/1andee) |
 ---|---
-[Meagan Blais](https://github.com/MeaganBlais) | [Ian Duke](https://github.com/1andee)
+[Saj Bandaranayake](https://github.com/Sanju3001) | [Ian Duke](https://github.com/1andee)
