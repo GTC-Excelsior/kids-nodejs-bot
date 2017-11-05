@@ -75,11 +75,13 @@ bot.dialog('firstDialog', function (session) {
 bot.dialog('secondDialog', function (session) {
   session.sendTyping();
   var msg = new builder.Message(session)
-  	.text("Sometimes I feel so alone and I think maybe it would be better if I was dead")
+  	.text("I’ve been considering suicide. I feel very isolated.")
   	.suggestedActions(
   		builder.SuggestedActions.create(
   				session, [
-  					builder.CardAction.imBack(session, "Are you safe?", "Are you safe?")
+  					builder.CardAction.imBack(session, "Can I offer you some local resources that can offer free confidential counselling?", "Can I offer you some local resources that can offer free confidential counselling?"),
+  					builder.CardAction.imBack(session, "Would you feel less alone if I told you that lots of people feel like that?", "Would you feel less alone if I told you that lots of people feel like that?"),
+            builder.CardAction.imBack(session, "That’s not a very healthy way to think.", "That’s not a very healthy way to think.")
   				]
   			));
   setTimeout(function () {
@@ -90,17 +92,19 @@ bot.dialog('secondDialog', function (session) {
 bot.dialog('thirdDialog', function (session) {
   session.sendTyping();
   var msg = new builder.Message(session)
-  	.text("Yes, I'm safe")
+  	.text("Not only do they bully me all the time, but I also failed my math test. I can’t do anything right.")
   	.suggestedActions(
   		builder.SuggestedActions.create(
   				session, [
-  					builder.CardAction.imBack(session, "Is now a good time to talk?", "Is now a good time to talk?")
+  					builder.CardAction.imBack(session, "Did you study?", "Did you study?"),
+  					builder.CardAction.imBack(session, "Which courses do you do well in?", "Which courses do you do well in?"),
+  					builder.CardAction.imBack(session, "Don’t worry, you’ll do better next time", "Don’t worry, you’ll do better next time"),
   				]
   			));
   setTimeout(function () {
       session.send(msg);
   }, 3500);
-}).triggerAction({ matches: /^(Are you safe?)/i });
+}).triggerAction({ matches: /^(Can I offer you some local resources that can offer free confidential counselling|Would you feel less alone if I told you that lots of people feel like that|That’s not a very healthy way to think.)/i });
 
 bot.dialog('fourthDialog', function (session) {
   session.sendTyping();
