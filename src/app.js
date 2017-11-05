@@ -33,6 +33,36 @@ function awardPoints(text) {
       scores.push(1);
     case "What did you do to them?":
       scores.push(0);
+    case "Do you have a safe place you can go?":
+      scores.push(2);
+    case "What did you do?":
+      scores.push(0);
+    case "Have you considered cutting him out of your life totally?":
+      scores.push(1);
+    case "Can I offer you some local resources that can offer free confidential counselling?":
+      scores.push(2);
+    case "Would you feel less alone if I told you that lots of people feel like that?":
+      scores.push(0);
+    case "That’s not a very healthy way to think.":
+      scores.push(0);
+    case "Try not to predict what’s going to happen in the future":
+      scores.push(0);
+    case "There is nothing you can do about some situations.":
+      scores.push(0);
+    case "Do you have family that could support you?  Here are some resources from your local  community that offers support.":
+      scores.push(2);
+    case "K. Bye.":
+      scores.push(0);
+    case "Okay, what do you feel you are leaving with today?":
+      scores.push(2);
+    case "It’s been great talking with you.":
+      scores.push(0);
+    case "Did you study?":
+      scores.push(0);
+    case "Which courses do you do well in":
+      scores.push(2);
+    case "Don’t worry, you’ll do better next time.":
+      scores.push(1);
   }
 }
 
