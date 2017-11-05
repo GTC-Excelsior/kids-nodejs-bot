@@ -1,0 +1,25 @@
+/*'#8FC93A',
+'#E4CC37',
+'#E18335',
+'#F2545B',
+'#70C1B3',
+'#A23B72',*/
+
+
+
+  .chart {
+    width: 75%;
+    margin: 40px auto;
+  }
+
+  .header {
+    height: 75px;
+    padding: 20px;
+    background-color: #1797C6;
+  }
+
+  #logo {
+    width: 200px;
+    height: auto;
+    float: right;
+  }
