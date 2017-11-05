@@ -63,6 +63,12 @@ function awardPoints(text) {
       scores.push(2);
     case "Don’t worry, you’ll do better next time.":
       scores.push(1);
+    case "School is important, you should stick it out.":
+      scores.push(0);
+    case "Why do you feel that way? Are there things/classes that you like?":
+      scores.push(2);
+    case "You have many options. What do you want for your future?":
+      scores.push(1);
   }
 }
 
