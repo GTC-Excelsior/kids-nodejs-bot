@@ -179,7 +179,7 @@ bot.dialog('fifthDialog', function (session) {
   			));
   setTimeout(function () {
       session.send(msg);
-  }, 6000);
+  }, 7000);
 }).triggerAction({ matches: /^(School is important, you should stick it out.|Why do you feel that way?|You have many options. What do you want for your future?)/i });
 
 bot.dialog('finalDialog', function (session) {
