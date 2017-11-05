@@ -22,15 +22,24 @@ var bot = new builder.UniversalBot(connector, function (session) {
   session.sendTyping();
   setTimeout(function () {
       session.send("Hi I need some help");
-  }, 10);
+  }, 3500);
 });
+
+function awardPoints(text) {
+  switch(text) {
+    case "How can I help?":
+      scores.push(5);
+    case "This sounds like it's your fault":
+      scores.push(1);
+  }
+}
 
 
 // Middleware for logging
 bot.use({
     receive: function (event, next) {
-      let randomNum = Math.floor(Math.random()*3);
-      scores.push(randomNum);
+      // conditionally award points for each answer
+      awardPoints(event.text);
       require('fs').writeFile(
         './testScores.js',
         `module.exports = { scores: [${scores}] };`,
@@ -40,7 +49,6 @@ bot.use({
             }
         }
       );
-      console.log(scores);
       next();
     }
 });
@@ -60,7 +68,7 @@ bot.dialog('firstDialog', function (session) {
   			));
   setTimeout(function () {
       session.send(msg);
-  }, 10);
+  }, 3500);
 }).triggerAction({ matches: /^(How can I help?)/i });
 
 bot.dialog('secondDialog', function (session) {
@@ -75,7 +83,7 @@ bot.dialog('secondDialog', function (session) {
   			));
   setTimeout(function () {
       session.send(msg);
-  }, 10);
+  }, 3500);
 }).triggerAction({ matches: /^(Tell me about your experience)/i });
 
 bot.dialog('thirdDialog', function (session) {
@@ -90,7 +98,7 @@ bot.dialog('thirdDialog', function (session) {
   			));
   setTimeout(function () {
       session.send(msg);
-  }, 10);
+  }, 3500);
 }).triggerAction({ matches: /^(Are you safe?)/i });
 
 bot.dialog('fourthDialog', function (session) {
@@ -99,7 +107,7 @@ bot.dialog('fourthDialog', function (session) {
   	.text("No. I have to go. Bye")
   setTimeout(function () {
       session.send(msg);
-  }, 10);
+  }, 3500);
   session.save();
 }).triggerAction({ matches: /^(Is now a good time to talk?)/i });
 
