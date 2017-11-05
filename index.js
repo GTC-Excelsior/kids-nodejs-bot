@@ -27,6 +27,13 @@ app.get("/", (req, res) => {
   res.render("index", templateVars);
 });
 
+app.get("/feedback", (req, res) => {
+  let templateVars = {
+    data
+  };
+  res.render("feedback", templateVars);
+});
+
 app.listen(PORT, () => {
   console.log(`Server listening on port ${PORT}`);
 });

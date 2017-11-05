@@ -1,5 +1,5 @@
 // Our labels along the x-axis
-var years = [1500,1600,1700,1750,1800,1850,1900,1950,1999,2050];
+var questions = ["Q1","Q2","Q3","Q4","Q5"];
 // For drawing the lines
 // var africa = myModule.myArray;
 var asia = [282,350,411,502,635,809,947,1402,3700,5267];
