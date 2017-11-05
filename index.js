@@ -1,13 +1,21 @@
 "use strict";
-const PORT = process.env.PORT || 8080; // default port 8080
+const PORT = 8080; // default port 8080
 const express = require("express");
 const app = express();
+const testResults = require("./testScores.js");
 
 app.set("view engine", "ejs");
 app.use(express.static("public"));
 
+let data = {
+  results: testResults.scores
+};
+
 app.get("/", (req, res) => {
-    res.render("index");
+  let templateVars = {
+    data
+  };
+  res.render("index", templateVars);
 });
 
 app.listen(PORT, () => {

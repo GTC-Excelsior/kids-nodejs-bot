@@ -4,8 +4,8 @@
   "description": "",
   "main": "src/app.js",
   "scripts": {
-    "start": "nodemon src/app.js",
-    "exp-server": "node index.js",
+    "start": "node src/app.js",
+    "exp-server": "nodemon index.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "concurrently --kill-others \"npm run start\" \"npm run exp-server\""
   },

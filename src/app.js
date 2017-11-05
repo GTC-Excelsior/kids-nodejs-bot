@@ -3,7 +3,7 @@ var builder = require('botbuilder');
 
 // Setup Restify Server
 var server = restify.createServer();
-server.listen(process.env.port || process.env.PORT || 3978, function () {
+server.listen(3978, function () {
    console.log('%s listening to %s', server.name, server.url);
 });
 
@@ -31,6 +31,15 @@ bot.use({
     receive: function (event, next) {
       let randomNum = Math.floor(Math.random()*3);
       scores.push(randomNum);
+      require('fs').writeFile(
+        './testScores.js',
+        `module.exports = { scores: [${scores}] };`,
+        function (err) {
+            if (err) {
+                console.log(err);
+            }
+        }
+      );
       console.log(scores);
       next();
     }
