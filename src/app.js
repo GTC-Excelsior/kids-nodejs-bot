@@ -16,7 +16,7 @@ var connector = new builder.ChatConnector({
 // Listen for messages from users
 server.post('/api/messages', connector.listen());
 
-let testaroo = [];
+let scores = [];
 
 var bot = new builder.UniversalBot(connector, function (session) {
   session.sendTyping();
@@ -29,11 +29,9 @@ var bot = new builder.UniversalBot(connector, function (session) {
 // Middleware for logging
 bot.use({
     receive: function (event, next) {
-      if (event.text == "What did you do to them?") {
-        console.log('wrong answer, bucko');
-        testaroo.push(0);
-      };
-      console.log(testaroo);
+      let randomNum = Math.floor(Math.random()*3);
+      scores.push(randomNum);
+      console.log(scores);
       next();
     }
 });
@@ -95,3 +93,5 @@ bot.dialog('fourthDialog', function (session) {
   }, 10);
   session.save();
 }).triggerAction({ matches: /^(Is now a good time to talk?)/i });
+
+module.exports = scores;
