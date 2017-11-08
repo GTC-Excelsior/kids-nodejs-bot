@@ -84,6 +84,7 @@ bot.use({
     receive: function (event, next) {
       // conditionally award points for each answer
       awardPoints(event.text);
+      // write updated array values to file
       require('fs').writeFile(
         './testScores.js',
         `module.exports = { scores: [${scores}] };`,
