@@ -23,6 +23,8 @@ AssessmentBot was built on the Microsoft Bot Framework to closely resemble the e
 
 ## Screenshots
 [![01_chatbot.png](https://raw.githubusercontent.com/GTC-Excelsior/kids-nodejs-bot/master/docs/01_chatbot_thumb.png)](https://raw.githubusercontent.com/GTC-Excelsior/kids-nodejs-bot/master/docs/01_chatbot.png) | [![02_graph.png](https://raw.githubusercontent.com/GTC-Excelsior/kids-nodejs-bot/master/docs/02_graph_thumb.png)](https://raw.githubusercontent.com/GTC-Excelsior/kids-nodejs-bot/master/docs/02_graph.png)  | [![03_recommendations.png](https://raw.githubusercontent.com/GTC-Excelsior/kids-nodejs-bot/master/docs/03_recommendations_thumb.png)](https://raw.githubusercontent.com/GTC-Excelsior/kids-nodejs-bot/master/docs/03_recommendations.png)
+---|---|---
+[01_chatbot.png](https://raw.githubusercontent.com/GTC-Excelsior/kids-nodejs-bot/master/docs/01_chatbot.png) | [02_graph.png](https://raw.githubusercontent.com/GTC-Excelsior/kids-nodejs-bot/master/docs/02_graph.png) | [03_recommendations.png](https://raw.githubusercontent.com/GTC-Excelsior/kids-nodejs-bot/master/docs/03_recommendations.png)
 
 ## Installation & Usage
 1. Clone repository
