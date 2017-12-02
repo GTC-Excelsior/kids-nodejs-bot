@@ -21,7 +21,7 @@ let scores = [];
 var bot = new builder.UniversalBot(connector, function (session) {
   session.sendTyping();
   setTimeout(function () {
-      session.send("Hi I need some help");
+      session.beginDialog('firstDialog');
   }, 3500);
 });
 
@@ -137,7 +137,7 @@ bot.dialog('firstDialog', function (session) {
   setTimeout(function () {
       session.send(msg);
   }, 3500);
-}).triggerAction({ matches: /^(How can I help?)/i });
+})
 
 bot.dialog('secondDialog', function (session) {
   session.sendTyping();
@@ -207,7 +207,7 @@ bot.dialog('fifthDialog', function (session) {
   }, 7000);
 }).triggerAction({ matches: /^(School is important, you should stick it out.|Why do you feel that way?|You have many options. What do you want for your future?)/i });
 
-bot.dialog('finalDialog', function (session) {
+bot.dialog('sixthDialog', function (session) {
   session.sendTyping();
   var msg = new builder.Message(session)
   	.text("I have to go, but I feel a bit better now. 🙌 Bye")
@@ -224,5 +224,10 @@ bot.dialog('finalDialog', function (session) {
   }, 3500);
   session.save();
 }).triggerAction({ matches: /^(Maybe it was a mistake. Have you asked them?|It doesn’t mean that there is anything wrong with you|They don’t sound like a very good friend.)/i });
+
+bot.dialog('finalDialog', function (session) {
+  var msg = `This concludes the interactive chat session.`;
+  session.endConversation(msg);
+}).triggerAction({ matches: /^(K. Bye.|Okay, what do you feel you are leaving with today?|It’s been great talking with you.)/i });
 
 module.exports = scores;
