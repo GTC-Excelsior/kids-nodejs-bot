@@ -25,6 +25,17 @@ var bot = new builder.UniversalBot(connector, function (session) {
   }, 3500);
 });
 
+bot.on('conversationUpdate', (message) => {
+  if (message.membersAdded) {
+    if (message.membersAdded[0].id == 'default-bot') {
+        const hello = new builder.Message()
+            .address(message.address)
+            .text("Hi, I need some help");
+        bot.send(hello);
+    }
+  }
+});
+
 function awardPoints(text) {
   switch(text) {
     case "I’m sorry to hear that. What kinds of things are they doing or saying?":
