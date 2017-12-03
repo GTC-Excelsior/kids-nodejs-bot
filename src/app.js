@@ -28,10 +28,17 @@ var bot = new builder.UniversalBot(connector, function (session) {
 bot.on('conversationUpdate', (message) => {
   if (message.membersAdded) {
     if (message.membersAdded[0].id == 'default-bot') {
-        const hello = new builder.Message()
+        const initialProactiveMessage = new builder.Message()
             .address(message.address)
-            .text("Hi, I need some help");
-        bot.send(hello);
+            .text("Initializing demo .....");
+        bot.send(initialProactiveMessage);
+
+        setTimeout(function () {
+          const secondProactiveMessage = new builder.Message()
+              .address(message.address)
+              .text("Hi, I need some help");
+          bot.send(secondProactiveMessage);
+        }, 3500);
     }
   }
 });
