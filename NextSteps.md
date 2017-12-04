@@ -21,6 +21,7 @@
 
 #### Ability to handle multiple scripts
   - List for user to select scenario to run
+    - See https://docs.microsoft.com/en-us/bot-framework/nodejs/bot-builder-nodejs-dialog-prompt#promptschoice
   - Resources:
     - https://www.microsoft.com/developerblog/2017/01/21/orchestrating-multiple-bots-with-multilingual-support/
     - https://github.com/morsh/multilingual-uber-bot
