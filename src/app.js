@@ -1,5 +1,7 @@
 var restify = require('restify');
 var builder = require('botbuilder');
+var fs = require('fs');
+var path = require('path');
 
 // Setup Restify Server
 var server = restify.createServer();
@@ -25,6 +27,28 @@ var bot = new builder.UniversalBot(connector, function (session) {
   }, 3500);
 });
 
+// Loop through bots in the /bots directory and add them as sub bots
+function getDirectories(srcpath) {
+    return fs.readdirSync(srcpath).filter(function (file) {
+        return fs.statSync(path.join(srcpath, file)).isDirectory();
+    });
+}
+
+// Enable automatic loading of all bots in '/bots' directory
+var bots = [];
+var botDirectories = getDirectories('./bots');
+
+for (var dirIdx in botDirectories) {
+
+    var dirName = botDirectories[dirIdx];
+    var childBot = require('./bots/' + dirName);
+    bots.push(childBot);
+    bot.library(childBot.createLibrary());
+};
+
+var botNames = bots.map(function (bot) { return bot.getName(session); });
+
+// Send proactive messages on connection
 bot.on('conversationUpdate', (message) => {
   if (message.membersAdded) {
     if (message.membersAdded[0].id == 'default-bot') {
@@ -127,7 +151,7 @@ bot.use({
       // conditionally award points for each answer
       awardPoints(event.text);
       // write updated array values to file
-      require('fs').writeFile(
+      fs.writeFile(
         './testScores.js',
         `module.exports = { scores: [${scores}] };`,
         function (err) {
