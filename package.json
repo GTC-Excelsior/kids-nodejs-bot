@@ -4,7 +4,7 @@
   "description": "",
   "main": "src/app.js",
   "scripts": {
-    "start": "node src/app.js",
+    "start": "node app.js",
     "exp-server": "nodemon index.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "concurrently --kill-others \"npm run start\" \"npm run exp-server\""
@@ -17,6 +17,7 @@
     "botbuilder": "^3.11.0",
     "ejs": "^2.5.7",
     "express": "^4.16.1",
+    "nconf": "^0.9.1",
     "pg": "^7.4.0",
     "pg-promise": "^5.9.7",
     "restify": "^6.3.1"
