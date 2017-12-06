@@ -1,8 +1,5 @@
-var restify = require('restify');
-var builder = require('botbuilder');
-var assessBot = require('./assess-bot');
-
-// var config = require('./config');
+const restify = require('restify');
+const builder = require('botbuilder');
 require('dotenv').config();
 
 //=========================================================
@@ -10,14 +7,13 @@ require('dotenv').config();
 //=========================================================
 
 // Setup Restify Server
-var server = restify.createServer();
-
+const server = restify.createServer()
 server.listen(process.env.port || process.env.PORT || 3978, function () {
     console.log('%s listening to %s', server.name, server.url);
 });
 
 // Create chat bot
-var connector = new builder.ChatConnector({
+const connector = new builder.ChatConnector({
     appId: process.env.MICROSOFT_APP_ID,
     appPassword: process.env.MICROSOFT_APP_PASSWORD
 });
