@@ -3,6 +3,7 @@ var builder = require('botbuilder');
 var assessBot = require('./assess-bot');
 
 // var config = require('./config');
+require('dotenv').config();
 
 //=========================================================
 // Bot Setup
